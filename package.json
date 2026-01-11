@@ -1,0 +1,91 @@
+{
+	"name": "visactor-vrender-demo",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"lint": "pnpm run lint:js && pnpm run stylelint",
+		"lint:js": "eslint .",
+		"typecheck": "tsc -p tsconfig.json --noEmit",
+		"preview": "vite preview",
+		"lint:fix": "eslint . --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"stylelint": "stylelint \"src/**/*.{css,less}\"",
+		"stylelint:fix": "pnpm run stylelint -- --fix",
+		"lint-staged": "lint-staged",
+		"commit": "cz",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
+		"@eslint/js": "^9.39.1",
+		"@tailwindcss/postcss": "^4.1.18",
+		"@types/react": "^19.2.5",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^4.3.4",
+		"autoprefixer": "^10.4.23",
+		"commitizen": "^4.3.1",
+		"cz-git": "^1.12.0",
+		"eslint": "^9.39.1",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-react-hooks": "^7.0.1",
+		"eslint-plugin-react-refresh": "^0.4.24",
+		"globals": "^16.5.0",
+		"husky": "^9.1.7",
+		"less": "^4.5.1",
+		"lint-staged": "^16.2.7",
+		"postcss": "^8.5.6",
+		"postcss-less-fix": "^6.0.1",
+		"postcss-less": "^6.0.0",
+		"prettier": "^3.7.4",
+		"stylelint": "^16.26.1",
+		"stylelint-config-recess-order": "^7.4.0",
+		"stylelint-config-recommended-less": "^4.0.1",
+		"stylelint-config-standard": "^39.0.1",
+		"stylelint-less": "^4.0.0",
+		"stylelint-order": "^7.0.1",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.9.2",
+		"typescript-eslint": "^8.46.1",
+		"vite": "^5.4.14"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"eslint --fix",
+			"prettier --write"
+		],
+		"*.{css,less}": [
+			"stylelint --fix",
+			"prettier --write"
+		],
+		"*.{json,md,yml,yaml}": [
+			"prettier --write"
+		]
+	},
+	"prettier": {
+		"printWidth": 100,
+		"singleQuote": true,
+		"semi": false,
+		"trailingComma": "all"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-git",
+			"czConfig": "./cz.config.cjs"
+		}
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"less"
+		]
+	}
+}
